@@ -6,14 +6,14 @@ window.addEventListener('DOMContentLoaded', () => {
   const pokeAbility = document.getElementById('pokeAbility');
 
 
-const comment = document.getElementById('myComment');
-  console.log(comment)
+
   const displayComment = (event) => {
     const comment = document.getElementById('myComment');
+    
     if(comment)
     event.preventDefault();
     comment.style.visibility = 'visible';
-    $('#message').text($('#messageInput').val());
+    $('#message').html($('#messageInput').val());
   };
 
 

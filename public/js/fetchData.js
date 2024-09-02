@@ -4,6 +4,8 @@ window.addEventListener('DOMContentLoaded',()=>{
   const pokeAbilityBtn=document.getElementById('ability')
   const sendButton=document.getElementById('sendButton')
   
+
+
   const displayComment=(event)=>{
     const comment=document.getElementById("myComment")
     event.preventDefault()
@@ -36,8 +38,9 @@ window.addEventListener('DOMContentLoaded',()=>{
     pokeP.innerText=`Your Pokémon is ${pokeInfo.name}.`
     pokeAbilityBtn.removeAttribute('disabled')
   }
+  
 
-  const fetchPokemonAbilities=async()=>{
+const fetchPokemonAbilities=async()=>{
     const pokedexNum=Math.floor(Math.random() * 266)
     let foundAbilities=''
     const pokeAbility=document.getElementById('pokeAbility')
@@ -66,7 +69,7 @@ window.addEventListener('DOMContentLoaded',()=>{
 
     pokeAbility.innerText=`It now knows the move ${abilityToDisplay}!`
   }
-  
+
   const invoquePokemon=()=>{
     const pokeBtn=document.getElementById('pokemon')
     pokeBtn.addEventListener('click', fetchPokemon)

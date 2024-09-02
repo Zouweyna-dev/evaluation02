@@ -1,17 +1,22 @@
-window.addEventListener('DOMContentLoaded',()=>{
-  const pokeP=document.getElementById('pokeInfo')
-  const pokeDiv=document.getElementById('pokemon-info')
-  const pokeAbilityBtn=document.getElementById('ability')
-  const sendButton=document.getElementById('sendButton')
-  
+window.addEventListener('DOMContentLoaded', () => {
+  const pokeP = document.getElementById('pokeInfo');
+  const pokeDiv = document.getElementById('pokemon-info');
+  const pokeAbilityBtn = document.getElementById('ability');
+  const sendButton = document.getElementById('sendButton');
+  const pokeAbility = document.getElementById('pokeAbility');
 
 
-  const displayComment=(event)=>{
-    const comment=document.getElementById("myComment")
-    event.preventDefault()
-    comment.style.visibility="visible"
-    $("#message").html($("#messageInput").val())
-  }
+const comment = document.getElementById('myComment');
+  console.log(comment)
+  const displayComment = (event) => {
+    const comment = document.getElementById('myComment');
+    if(comment)
+    event.preventDefault();
+    comment.style.visibility = 'visible';
+    $('#message').text($('#messageInput').val());
+  };
+
+
 
   const fetchPokemon=async ()=>{
     const pokedexNum=Math.floor(Math.random() * 897)
@@ -86,4 +91,4 @@ const fetchPokemonAbilities=async()=>{
     pokemonAbility()
     sendButton.addEventListener('click', displayComment)
   })()
-})
+});

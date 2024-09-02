@@ -6,7 +6,7 @@
  * @return {object| String} un objet avec arg indexé ou un message si aucun arg n'est fourni
  */
 
-const returnAnObject = (...args) => {
+ export const returnAnObject = (...args) => {
   let response = {};
   if (args.length) {
     let index = 0;
@@ -28,13 +28,19 @@ const returnAnObject = (...args) => {
  * @return {Array<number>|string} -un tableau avec chaque nombre multiplié par 2 ou un message d'erreur si l'argument n'est pas un tableau de nombre
  */
 
-const multiplyAllByTwo = (arrayOfNumbers) => {
+export const multiplyAllByTwo = (arrayOfNumbers) => {
   let response;
-  if (arrayOfNumbers.constructor.prototype === new Array().constructor.prototype) {
-    response = arrayOfNumbers.map((val => val * 2));
-    console.log('arrayTimesTwo: ', arrayTimesTwo);
-  } else {
-    response = 'The argument is not an Array of numbers';
-  };
+  if (Array.isArray(arrayOfNumbers)) {
+  
+    for (const element of arrayOfNumbers) {
+      if (typeof element !== 'number') {
+        return `l'argument n'est pas un tableau de nombres`;
+      }
+    }
+    
+    response = arrayOfNumbers.map(val => val * 2);
+  }
+
   return response;
 };
+
